@@ -1,0 +1,367 @@
+/* ===== RESET & BASE ===== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #0d0500;
+  color: #f0e0c0;
+  font-family: 'Noto Sans Tamil', 'Latha', 'Tamil MN', 'Vijaya', serif;
+  min-height: 100vh;
+}
+
+#root { width: 100%; min-height: 100vh; }
+
+/* ===== APP ===== */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #0d0500;
+}
+
+/* ===== HEADER ===== */
+.app-header {
+  text-align: center;
+  padding: 48px 24px 36px;
+  background: linear-gradient(180deg, #1a0800 0%, #2d1200 60%, #0d0500 100%);
+  border-bottom: 2px solid #7a4a10;
+  position: relative;
+}
+
+.app-header::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #c8820a, #ffd700, #c8820a, transparent);
+}
+
+.app-om {
+  font-size: 2.8rem;
+  margin-bottom: 12px;
+  filter: drop-shadow(0 0 12px #ffd700aa);
+}
+
+.app-title {
+  font-size: clamp(1.6rem, 4.5vw, 2.8rem);
+  font-weight: 700;
+  color: #ffd700;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  text-shadow: 0 0 20px #c8820a88, 0 2px 4px #00000099;
+}
+
+.app-sub {
+  font-size: 1rem;
+  color: #d4a04a;
+  letter-spacing: 3px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.app-desc {
+  font-size: 0.9rem;
+  color: #9a7850;
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ===== CATEGORY BAR ===== */
+.category-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 18px 28px 12px;
+  background: #110600;
+  border-bottom: 1px solid #3a2000;
+  justify-content: center;
+}
+
+.cat-btn {
+  padding: 7px 16px;
+  border-radius: 20px;
+  background: transparent;
+  color: #9a7850;
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: inherit;
+  border: 1px solid #3a2000;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.cat-btn:hover {
+  background: rgba(200,130,10,0.1);
+  color: #c8820a;
+  border-color: #c8820a;
+}
+
+.cat-btn.active {
+  background: rgba(200,130,10,0.2);
+  color: #ffd700;
+  border-color: #c8820a;
+}
+
+/* ===== GODS GRID ===== */
+.gods-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+  padding: 36px 28px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ===== GOD CARD ===== */
+.god-card {
+  background: #1a0a00;
+  border: 1px solid #5a3010;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.god-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px rgba(200, 130, 10, 0.25);
+  border-color: #c8820a;
+}
+
+.god-card-banner {
+  height: 8px;
+}
+
+.god-card-body {
+  padding: 22px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.god-tamil {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffd700;
+  letter-spacing: 0.5px;
+  line-height: 1.3;
+}
+
+.god-english {
+  font-size: 0.8rem;
+  color: #9a7850;
+  font-style: italic;
+}
+
+.god-count {
+  font-size: 0.85rem;
+  color: #c8820a;
+  font-weight: 600;
+  background: rgba(200,130,10,0.1);
+  padding: 3px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(200,130,10,0.3);
+}
+
+.god-btn {
+  margin-top: 8px;
+  padding: 10px 22px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  font-family: inherit;
+  letter-spacing: 0.5px;
+  transition: filter 0.2s, transform 0.1s;
+}
+
+.god-btn:hover {
+  filter: brightness(1.15);
+  transform: scale(1.02);
+}
+
+/* ===== NAMES VIEW ===== */
+.names-view {
+  min-height: 100vh;
+  background: #0d0500;
+  display: flex;
+  flex-direction: column;
+}
+
+.names-header {
+  padding: 20px 28px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.back-btn {
+  background: rgba(0,0,0,0.35);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 1px solid rgba(255,255,255,0.2);
+  flex-shrink: 0;
+  font-family: inherit;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+
+.back-btn:hover {
+  background: rgba(0,0,0,0.55);
+}
+
+.names-header-text h1 {
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.names-header-text p {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.75);
+}
+
+/* ===== SEARCH BAR ===== */
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 28px;
+  background: #150700;
+  border-bottom: 1px solid #3a2000;
+  position: sticky;
+  top: 72px;
+  z-index: 9;
+}
+
+.search-input {
+  flex: 1;
+  padding: 10px 16px;
+  background: #1a0a00;
+  border: 1px solid #5a3010;
+  border-radius: 8px;
+  color: #f0e0c0;
+  font-size: 1rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.search-input::placeholder { color: #6a4a30; }
+
+.search-input:focus {
+  border-color: #c8820a;
+  box-shadow: 0 0 0 2px rgba(200,130,10,0.15);
+}
+
+.search-count {
+  font-size: 0.85rem;
+  color: #c8820a;
+  font-weight: 600;
+  white-space: nowrap;
+  background: rgba(200,130,10,0.1);
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(200,130,10,0.3);
+}
+
+/* ===== NAMES LIST ===== */
+.names-list {
+  padding: 12px 0 40px;
+  max-width: 860px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.name-row {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 13px 28px;
+  border-bottom: 1px solid #1e0e00;
+  transition: background 0.15s;
+}
+
+.name-row:hover {
+  background: #1a0a00;
+}
+
+.name-num {
+  font-size: 0.78rem;
+  font-weight: 700;
+  min-width: 28px;
+  text-align: right;
+  flex-shrink: 0;
+  opacity: 0.85;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+.name-text {
+  font-size: 1.2rem;
+  color: #f0e0c0;
+  line-height: 1.5;
+  letter-spacing: 0.3px;
+}
+
+.no-results {
+  text-align: center;
+  padding: 60px 24px;
+  color: #6a4a30;
+  font-size: 1rem;
+}
+
+/* ===== FOOTER ===== */
+.app-footer {
+  text-align: center;
+  padding: 20px;
+  background: #0a0300;
+  border-top: 1px solid #3a2000;
+  color: #6a4a30;
+  font-size: 0.85rem;
+  margin-top: auto;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 640px) {
+  .category-bar { padding: 12px 14px 10px; gap: 6px; }
+  .cat-btn { padding: 5px 12px; font-size: 0.78rem; }
+
+  .gods-grid {
+    grid-template-columns: 1fr 1fr;
+    padding: 20px 14px;
+    gap: 12px;
+  }
+
+  .god-card-body { padding: 16px 12px; }
+  .god-tamil { font-size: 1.2rem; }
+
+  .names-header { padding: 14px 16px; gap: 12px; }
+  .search-bar { padding: 12px 16px; }
+  .name-row { padding: 12px 16px; gap: 12px; }
+  .name-text { font-size: 1.05rem; }
+  .name-num { min-width: 22px; font-size: 0.72rem; }
+
+  .app-header { padding: 32px 16px 28px; }
+}
+
+@media (max-width: 380px) {
+  .gods-grid { grid-template-columns: 1fr; }
+}
